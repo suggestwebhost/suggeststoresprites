@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: sprite-vault-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    plan: free
+    envVars:
+      - key: MONGO_URI
+        sync: false # You will paste your MongoDB string directly in the Render dashboard panel
